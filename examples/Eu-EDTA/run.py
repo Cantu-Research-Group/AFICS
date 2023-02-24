@@ -1,7 +1,7 @@
 import rmsd
 
 outputFile = 'Eu-results'
-traj = rmsd.Trajectory(ionID='Eu', elements=['O','N'], boxSize=17.5, framesForRMSD=200, binSize=0.02, startFrame=1, endFrame=10000)
+traj = rmsd.Trajectory(ionID='Eu', elements=['O','N'], boxSize=17.5, framesForRMSD=1000, binSize=0.02, startFrame=1, endFrame=10000)
 traj.getAtoms('./Eu-EDTA.xyz') 
 
 traj.getIonNum()
