@@ -172,35 +172,19 @@ class Trajectory ():
 
     def getMaxR(self):
         '''
-        Calculates the maximum radius for determining atoms within the first coordination sphere
+        Calculates the maximum radius for determining atoms within the first coordination sphere and the coordination number
         '''
-        max = 0.0
         breakCount = 0
         for i, value in enumerate(self.rdfIntegral):
-            if (i != 0):
-                if (value - self.rdfIntegral[i - 1] < 0.02) and (value > 0):
-                    breakCount += 1
-            if (value > max):
-                max = value
-            if (breakCount >= 3):
-                self.maxR = self.binSize * (i + 1) # plus 1 to get the outside of the bin
-                break
-
-    def getCN(self):
-        '''
-        Calculates coordination number
-        '''
-        max = 0.0
-        breakCount = 0
-        for i, value in enumerate(self.rdfIntegral):
-            if (i != 0):
-                if (value - self.rdfIntegral[i - 1] < 0.02) and (value > 0):
-                    breakCount += 1
-            if (value > max):
-                max = value
-            if (breakCount > 3):
-                self.coorNum = round(max)
-                break
+            if (value > 0):
+                if (value - self.rdfIntegral[i - 1] < 0.002) and (breakCount == 0):
+                    breakCount +=1
+                elif (value - self.rdfIntegral[i - 1] > 0.002) and (breakCount == 1):
+                    breakCount -=1
+                elif (value - self.rdfIntegral[i - 1] < 0.002) and (breakCount == 1):
+                    self.coorNum = round(value)
+                    self.maxR = self.binSize * i
+                    break
 
     def printRDF(self, filename):
         '''
