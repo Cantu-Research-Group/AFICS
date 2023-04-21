@@ -12,5 +12,5 @@ Two files are of primary interest for running AFICS: one, the user needs to prov
 Demo files for using AFICS are provided under `example`. Two examples are provided: first, an MD simulation an of the Cr(III) ion within water; and second, an MD simulation of Eu(III) ion chelated by ethylenediaminetetraacetic acid (EDTA) within water. The MD trajectory files are provided and may be analyzed by executing the accompanying `run.py` scripts. While non-coordinated solvent and counterion molecules have been removed from these demo files in order to reduce the file sizes, removing non-first sphere molecules is not required to use AFICS.
 
 ## Citation
-
+The journal article describing the AFICS toolkit is "Analysis of the First Ion Coordination Sphere: A Toolkit to Analyze the Coordination Sphere of Ions" published in the *Journal of Chemical Information and Modeling* and can be found at the following DOI: [10.1021/acs.jcim.3c00294](https://doi.org/10.1021/acs.jcim.3c00294)
 
