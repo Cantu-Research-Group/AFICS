@@ -176,7 +176,7 @@ class Trajectory ():
         '''
         breakCount = 0
         for i, value in enumerate(self.rdfIntegral):
-            if (value > 0):
+            if (value > 2.5):
                 if (value - self.rdfIntegral[i - 1] < 0.002) and (breakCount == 0):
                     breakCount +=1
                 elif (value - self.rdfIntegral[i - 1] > 0.002) and (breakCount == 1):
