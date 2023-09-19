@@ -146,7 +146,7 @@ class Trajectory ():
             else:
                 frameAtoms.clear()
                 self.missingFrames.append(i + self.startFrame)
-                print ('Frame '+str(i + self.startFrame)+' was unable to be collected')
+                print ('Frame '+str(i + self.startFrame)+' is excluded as its coordination number is different.')
         self.thresholdAtoms = np.array(self.thresholdAtoms)
         print ('First sphere atoms complete')
 
@@ -176,7 +176,7 @@ class Trajectory ():
         '''
         breakCount = 0
         for i, value in enumerate(self.rdfIntegral):
-            if (value > 2.5):
+            if (i > (self.dist/self.binSize)):
                 if (value - self.rdfIntegral[i - 1] < 0.002) and (breakCount == 0):
                     breakCount +=1
                 elif (value - self.rdfIntegral[i - 1] > 0.002) and (breakCount == 1):
