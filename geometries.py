@@ -104,7 +104,7 @@ def idealGeometries(coordNum, r):
 
     elif (coordNum == 7):
         # capped octahedral (CO)
-        theta = np.atan(np.sqrt(0.5))
+        theta = np.arctan(np.sqrt(0.5))
         a = (37 - 3*np.power(np.cos(theta), 2) + 12*np.sin(theta))
         b = r*(-14*np.sin(theta) - 84)
         c = 49*pow(r, 2)
